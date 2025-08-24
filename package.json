@@ -1,0 +1,24 @@
+{
+  "name": "prblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "packageManager": "npm@11.3.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "prisma": "^6.14.0",
+    "turbo": "^2.5.6"
+  }
+}
