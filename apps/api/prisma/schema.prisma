@@ -13,7 +13,7 @@ datasource db {
 model User {
   id        Int       @id @default(autoincrement())
   name      String
-  email     String
+  email     String    @unique
   bio       String?
   avatar    String?
   password  String?
@@ -52,8 +52,8 @@ model Comment {
 }
 
 model Tag {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+  id    Int    @id @default(autoincrement())
+  name  String @unique
   posts Post[] @relation("PostTags")
 }
 
