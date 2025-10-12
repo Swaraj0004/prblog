@@ -5,15 +5,18 @@ const Hero = () => {
                 {/* Left Section */}
                 <div className="flex flex-col w-full justify-center items-start md:w-2/5 text-center md:text-left">
                     <p className="capitalize tracking-wide w-full">Explore insights , tutorials , and stories for curious minds like yours </p>
-                    <h2 className="my-5 text-5xl font-bold leading-tight">Wellcome To Carnival Events & SFX</h2>
-                    <p className="capitalize leading-normal text-xl">For those looking for exceptional event planning and management, Carnival Events & SFX in Bhandewadi, Nagpur is the perfect one-stop destination. With a team of skilled professionals, Carnival Events & SFX provides customizable options to match any event's theme and style.</p>
+                    <h2 className="my-5 text-5xl font-bold leading-tight">Wellcome to My Morden Block</h2>
+                    <p className="capitalize leading-normal text-xl">
+                        Dive into a world of knowledge, creativity, and inspiration
+                        with our engaging blog posts.
+                    </p>
                 </div>
                 {/* Right Section */}
                 <div className="w-full flex justify-center text-center py-7 md:w-3/5">
                     <img
                         src="/hero.png"
                         alt="hero section"
-                        className="w-full md:w-3/4  "
+                        className="w-full md:w-3/4  z-30"
                     />
                 </div>
             </div>
