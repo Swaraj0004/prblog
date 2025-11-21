@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 import { PropsWithChildren, useState, useEffect } from "react";
 
 type Props = PropsWithChildren
@@ -9,6 +10,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
         setScrollPosition(window.scrollY);
     };
 
+    const pathname = usePathname();
     useEffect(() => {
         window.addEventListener("scroll", handlescroll);
         return () => {
@@ -17,10 +19,11 @@ const [scrollPosition, setScrollPosition] = useState(0);
     });
 
     const isScrollDown = scrollPosition > 10;
+    const isHome = pathname === "/";
 
     return (
         <nav className={cn("hidden fixed transition-colors w-full z-50 text-white top-0 md:block", 
-        { "bg-white text-gray-700 shadow-md": isScrollDown, })}>
+        { "bg-white text-gray-700 shadow-md": isScrollDown|| !isHome, })}>
             <div className="flex items-center px-4 py-4 container">
                 {props.children}
             </div>
