@@ -34,3 +34,12 @@ query getPostById($id: Int!) {
     }
 }
 `;
+
+
+export const Create_User_MUTATION = gql`
+mutation createUser($input: CreateUserInput!) {
+    createUser(createUserInput: $input) {
+        id
+    }
+}
+`;

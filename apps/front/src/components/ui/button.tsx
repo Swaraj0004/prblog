@@ -35,6 +35,8 @@ const buttonVariants = cva(
   }
 )
 
+export type ButtonProps = React.ComponentPropsWithoutRef<"button">;
+
 function Button({
   className,
   variant,
