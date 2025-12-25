@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 import { Sign_In_MUTATION } from "../gqlQueries";
 import { LoginFormSchema } from "../zodSchemas/loginFormSchema";
 import { revalidatePath } from "next/cache";
+import { createSession } from "../session";
 
 export async function signUp(
     state: SignUpFormState,
@@ -69,6 +70,14 @@ export async function signIn(
     }
 
     //todo set cookie 
+    await createSession({
+        user: {
+            id: data.SignIn.id,
+            name: data.SignIn.name,
+            avatar: data.SignIn.avatar,
+        },
+        acessToken: data.SignIn.accessToken,
+    });
     revalidatePath("/");
     redirect("/");
 }
