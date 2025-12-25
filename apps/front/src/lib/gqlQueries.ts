@@ -43,3 +43,14 @@ mutation createUser($input: CreateUserInput!) {
     }
 }
 `;
+
+export const Sign_In_MUTATION = gql`
+mutation SignIn($input: SignInInput!) {
+    SignIn(signInInput: $input) {
+        id
+        name
+        avatar
+        accessToken
+    }
+}
+`;
