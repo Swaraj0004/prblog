@@ -5,6 +5,8 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './strategies/jwt.strategies';
+import { GoogleStrategy } from './strategies/google.strategy';
+import { AuthController } from './auth.controller';
 
 @Module({
   imports: [JwtModule.registerAsync({
@@ -15,6 +17,7 @@ import { JwtStrategy } from './strategies/jwt.strategies';
       signOptions: { expiresIn: configService.get<string>('JWT_EXPIRES_IN') },
     }),
   })],
-  providers: [AuthResolver, AuthService, PrismaService, JwtStrategy],
+  providers: [AuthResolver, AuthService, PrismaService, JwtStrategy , GoogleStrategy],
+  controllers: [AuthController],
 })
 export class AuthModule { }

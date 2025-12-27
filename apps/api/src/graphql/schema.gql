@@ -68,7 +68,7 @@ input CreateUserInput {
   password: String!
   email: String!
   bio: String
-  avtar: String
+  avatar: String
 }
 
 input SignInInput {

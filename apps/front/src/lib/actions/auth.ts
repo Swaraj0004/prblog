@@ -76,7 +76,7 @@ export async function signIn(
             name: data.SignIn.name,
             avatar: data.SignIn.avatar,
         },
-        acessToken: data.SignIn.accessToken,
+        accessToken: data.SignIn.accessToken,
     });
     revalidatePath("/");
     redirect("/");

@@ -18,5 +18,5 @@ export class CreateUserInput {
   bio?: string;
 
   @Field({ nullable: true })
-  avtar?: string;
+  avatar?: string;
 }

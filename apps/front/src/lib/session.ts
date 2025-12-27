@@ -3,14 +3,14 @@ import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 export type SessionUser = {
-    id?: number;
+    id?: string;
     name?: string;
     avatar?: string;
 };
 
 export type Session = {
     user: SessionUser;
-    acessToken: string;
+    accessToken: string;
 }
 const secretKey = process.env.SESSION_SECRET_KEY!
 const encodedKey = new TextEncoder().encode(secretKey)

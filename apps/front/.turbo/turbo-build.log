@@ -1,0 +1,35 @@
+
+> front@0.1.0 build
+> next build --turbopack
+
+   ▲ Next.js 15.5.0 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Finished writing to disk in 55ms
+ ✓ Compiled successfully in 6.2s
+   Linting and checking validity of types ...
+Failed to compile.
+
+.next/types/validator.ts:77:11
+Type error: Type 'typeof import("C:/Users/OMEN/OneDrive/Desktop/prblog/apps/front/src/app/api/auth/google/callback/route")' does not satisfy the expected type 'RouteHandlerConfig<"/api/auth/google/callback">'.
+  Types of property 'GET' are incompatible.
+    Type '(req: NextResponse<unknown>) => Promise<void>' is not assignable to type '(request: NextRequest, context: { params: Promise<{}>; }) => void | Response | Promise<Response> | Promise<void>'.
+      Types of parameters 'req' and 'request' are incompatible.
+        Type 'NextRequest' is missing the following properties from type 'NextResponse<unknown>': [INTERNALS], ok, redirected, status, and 2 more.
+
+[0m [90m 75 |[39m {
+ [90m 76 |[39m   [36mconst[39m handler [33m=[39m {} [36mas[39m [36mtypeof[39m [36mimport[39m([32m"..\\..\\src\\app\\api\\auth\\google\\callback\\route.js"[39m)
+[31m[1m>[22m[39m[90m 77 |[39m   handler satisfies [33mRouteHandlerConfig[39m[33m<[39m[32m"/api/auth/google/callback"[39m[33m>[39m
+ [90m    |[39m           [31m[1m^[22m[39m
+ [90m 78 |[39m }
+ [90m 79 |[39m
+ [90m 80 |[39m [90m// Validate ..\..\src\app\api\auth\signout\route.ts[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+npm error Lifecycle script `build` failed with error:
+npm error code 1
+npm error path C:\Users\OMEN\OneDrive\Desktop\prblog\apps\front
+npm error workspace front@0.1.0
+npm error location C:\Users\OMEN\OneDrive\Desktop\prblog\apps\front
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next build --turbopack

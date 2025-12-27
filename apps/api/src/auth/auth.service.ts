@@ -5,6 +5,7 @@ import { verify } from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { AuthJwtPayload } from 'src/auth/types/auth-jwtPayload';
 import { User } from '@prisma/client';
+import { CreateUserInput } from 'src/user/dto/create-user.input';
 
 @Injectable()
 export class AuthService {
@@ -48,7 +49,27 @@ export class AuthService {
         });
 
         if (!user) throw new UnauthorizedException('user not found');
-        const currentUser = {id: user.id};
+        const currentUser = { id: user.id };
         return currentUser;
+    }
+
+    async validateGoogleUser(googleUser: CreateUserInput) {
+        const user = await this.prisma.user.findUnique({
+            where: {
+                email: googleUser.email,
+            },
+        });
+        if (user) {
+            const { password, ...authUser } = user;
+            return authUser;
+        }
+
+        const dbUser = await this.prisma.user.create({
+            data: {
+                ...googleUser,
+            },
+        });
+        const { password, ...authUser } = dbUser;
+        authUser;
     }
 }
